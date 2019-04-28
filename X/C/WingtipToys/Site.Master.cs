@@ -102,8 +102,32 @@ namespace WingtipToys
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            var searchText = Server.UrlEncode(searchBox.Text); 
-            Response.Redirect("~/Results.aspx?srch=" + searchText);
+            var searchText = Server.UrlEncode(searchBox.Text);
+            //Response.Redirect("~/Results.aspx?srch=" + searchText);
+            string connectionString = "Data Source=MYLAPTOP\\SQLEXPRESS;Database=wingtiptoys.mdf;Integrated Security=True";
+            string queryString = "SELECT * FROM dbo.Products WHERE ProductName = '" + searchText + "'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                try
+                {
+                    if (reader.Read())
+                    {
+                        Response.Redirect("~/Product/" + reader[1]);
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.RawUrl);
+                    }
+                }
+                finally
+                {
+                    reader.Close();
+                }
+            }
+
         }
     }
 
