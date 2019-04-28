@@ -74,7 +74,11 @@
                         </LoggedInTemplate>
                     </asp:LoginView>
         </nav>
-        
+        <div id="search">
+            <asp:TextBox ID="searchBox" runat="server" placeholder="Search..."></asp:TextBox>
+            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+        </div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WingtipToys %>" ProviderName="<%$ ConnectionStrings:WingtipToys.ProviderName %>"></asp:SqlDataSource>
         <div id="CategoryMenu" style="text-align: center">       
             <asp:ListView ID="categoryList"  
                 ItemType="WingtipToys.Models.Category" 

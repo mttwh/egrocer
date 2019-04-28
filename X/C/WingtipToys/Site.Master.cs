@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using System.Linq;
 using WingtipToys.Models;
 using WingtipToys.Logic;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace WingtipToys
 {
@@ -96,6 +98,12 @@ namespace WingtipToys
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            var searchText = Server.UrlEncode(searchBox.Text); 
+            Response.Redirect("~/Results.aspx?srch=" + searchText);
         }
     }
 
