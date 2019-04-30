@@ -73,26 +73,26 @@ namespace WingtipToys
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          if (HttpContext.Current.User.IsInRole("canEdit"))
-          {
-            adminLink.Visible = true;
-          }
+            if (HttpContext.Current.User.IsInRole("canEdit"))
+            {
+                adminLink.Visible = true;
+            }
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-          using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
-          {
-            string cartStr = string.Format("Cart ({0})", usersShoppingCart.GetCount());
-            cartCount.InnerText = cartStr;
-          }
+            using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
+            {
+                string cartStr = string.Format("Cart ({0})", usersShoppingCart.GetCount());
+                cartCount.InnerText = cartStr;
+            }
         }
 
         public IQueryable<Category> GetCategories()
         {
-          var _db = new WingtipToys.Models.ProductContext();
-          IQueryable<Category> query = _db.Categories;
-          return query;
+            var _db = new WingtipToys.Models.ProductContext();
+            IQueryable<Category> query = _db.Categories;
+            return query;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -105,6 +105,7 @@ namespace WingtipToys
             var searchText = Server.UrlEncode(searchBox.Text);
             //Response.Redirect("~/Results.aspx?srch=" + searchText);
             string connectionString = "Data Source=MYLAPTOP\\SQLEXPRESS;Database=wingtiptoys.mdf;Integrated Security=True";
+            //string connectionString = @"Data Source=DESKTOP-S3P3TBM\SQLEXPRESS;Initial Catalog=wingtiptoys.mdf;Integrated Security=True";
             string queryString = "SELECT * FROM dbo.Products WHERE ProductName = '" + searchText + "'";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    
 </head>
 <body>
     <form runat="server">
@@ -46,7 +46,7 @@
                     </a>
                 </div>
                           <ul class="nav navbar-nav">
-                        <li><a runat="server" id="adminLink" visible="false" 
+                        <li class="navLink"><a runat="server" id="adminLink" visible="false" 
                           href="~/Admin/AdminPage">Admin</a></li>
                         <li class="navLink"><a runat="server" href="~/">Home</a></li>
                         <li class="navLink"><a runat="server" href="~/About">About</a></li>
@@ -75,7 +75,7 @@
                     </asp:LoginView>
         </nav>
         <div id="search">
-            <asp:TextBox ID="searchBox" runat="server" placeholder="Search..."></asp:TextBox>
+            <asp:TextBox ID="searchBox" runat="server"></asp:TextBox>
             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
         </div>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WingtipToys %>" ProviderName="<%$ ConnectionStrings:WingtipToys.ProviderName %>"></asp:SqlDataSource>

@@ -26,6 +26,39 @@
     padding: 5px;
 }
 
+.theRow {
+    width: 100%;
+    margin-bottom: 20px;
+    clear: both;
+}
+
+.addProductTable {
+    float: left;
+    width: 48%;
+}
+
+.updateProductTable {
+    float: left;
+    width: 48%;
+}
+
+.removeProductTable {
+    margin-top: 20px;
+}
+
+.productWarningLabel {
+    color: red;
+    font-size: small;
+}
+
+.breakText {
+    color: white;
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input[type="text"],
 input[type="password"],
