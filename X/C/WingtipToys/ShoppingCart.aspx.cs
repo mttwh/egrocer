@@ -31,7 +31,7 @@ namespace WingtipToys
           lblTotal.Text = "";
           ShoppingCartTitle.InnerText = "Shopping Cart is Empty";
           UpdateBtn.Visible = false;
-          CheckoutImageBtn.Visible = false;
+          CheckoutBtn.Visible = false;
         }
       }
     }
@@ -89,7 +89,7 @@ namespace WingtipToys
       UpdateCartItems();
     }
 
-    protected void CheckoutBtn_Click(object sender, ImageClickEventArgs e)
+    protected void CheckoutBtn_Click(object sender, EventArgs e)
     {
       using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
       {
@@ -102,9 +102,9 @@ namespace WingtipToys
                     var price = product.Product.UnitPrice;
                     var quantity = product.Quantity;
 
-                    quantities = quantities + " ";
-                    prices = prices + price + " ";
-                    products = products + name + " ";
+                    quantities = quantities + quantity + ",";
+                    prices = prices + price + ",";
+                    products = products + name + ",";
                 }
 
                 Session["product_names"] = products;

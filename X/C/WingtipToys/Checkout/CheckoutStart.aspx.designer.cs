@@ -13,6 +13,15 @@ namespace WingtipToys.Checkout {
     public partial class CheckoutStart {
         
         /// <summary>
+        /// LabelOrderTotalText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelOrderTotalText;
+        
+        /// <summary>
         /// LabelOrderTotal control.
         /// </summary>
         /// <remarks>
