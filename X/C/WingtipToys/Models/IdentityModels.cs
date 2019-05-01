@@ -23,6 +23,7 @@ namespace WingtipToys.Models
 
         public Task<ClaimsIdentity> GenerateUserIdentityAsync(ApplicationUserManager manager)
         {
+
             return Task.FromResult(GenerateUserIdentity(manager));
         }
     }
@@ -103,6 +104,8 @@ namespace WingtipToys
                 response.Redirect("~/");
             }
         }
+
+       
     }
 }
 #endregion

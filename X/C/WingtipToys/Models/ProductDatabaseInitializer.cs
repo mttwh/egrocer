@@ -17,7 +17,7 @@ namespace WingtipToys.Models
                 new Category
                 {
                     CategoryID = 1,
-                    CategoryName = "Cars"
+                    CategoryName = "Furit"
                 },
                 new Category
                 {

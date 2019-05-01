@@ -7,33 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace WingtipToys.Checkout
 {
-  public partial class CheckoutStart : System.Web.UI.Page
-  {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class CheckoutStart : System.Web.UI.Page
     {
-      NVPAPICaller payPalCaller = new NVPAPICaller();
-      string retMsg = "";
-      string token = "";
-
-      if (Session["payment_amt"] != null)
-      {
-        string amt = Session["payment_amt"].ToString();
-
-        bool ret = payPalCaller.ShortcutExpressCheckout(amt, ref token, ref retMsg);
-        if (ret)
+        protected void Page_Load(object sender, EventArgs e)
         {
-          Session["token"] = token;
-          Response.Redirect(retMsg);
+
         }
-        else
-        {
-          Response.Redirect("CheckoutError.aspx?" + retMsg);
-        }
-      }
-      else
-      {
-        Response.Redirect("CheckoutError.aspx?ErrorCode=AmtMissing");
-      }
     }
-  }
 }

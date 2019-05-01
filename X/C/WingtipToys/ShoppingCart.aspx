@@ -18,7 +18,9 @@
                     <%#: String.Format("{0:c}", ((Convert.ToDouble(Item.Quantity)) *  Convert.ToDouble(Item.Product.UnitPrice)))%>
                 </ItemTemplate>        
         </asp:TemplateField> 
-        <asp:TemplateField HeaderText="Remove Item">            
+        <asp:TemplateField HeaderText="
+            
+            Item">            
                 <ItemTemplate>
                     <asp:CheckBox id="Remove" runat="server"></asp:CheckBox>
                 </ItemTemplate>        

@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <hgroup>
-        <h1>Locked out.</h1>
-        <h2 class="text-danger">This account has been locked out, please try again later.</h2>
+        <h1>Account Confirmation Requried</h1>
+        <h2 class="text-danger">Please check your email and confirm your email address.</h2>
     </hgroup>
 </asp:Content>
