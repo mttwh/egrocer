@@ -93,7 +93,24 @@ namespace WingtipToys
     {
       using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
       {
-        Session["payment_amt"] = usersShoppingCart.GetTotal();
+                string products = "";
+                string prices = "";
+                string quantities = "";
+               foreach(var product in usersShoppingCart.GetCartItems())
+                {
+                    var name = product.Product.ProductName;
+                    var price = product.Product.UnitPrice;
+                    var quantity = product.Quantity;
+
+                    quantities = quantities + " ";
+                    prices = prices + price + " ";
+                    products = products + name + " ";
+                }
+
+                Session["product_names"] = products;
+                Session["product_prices"] = prices;
+                Session["product_quantities"] = quantities;
+                Session["payment_amt"] = usersShoppingCart.GetTotal();
       }
       Response.Redirect("Checkout/CheckoutStart.aspx");
     }
