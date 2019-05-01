@@ -11,6 +11,8 @@ using WingtipToys.Models;
 using WingtipToys.Logic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Services;
+using System.Configuration;
 
 namespace WingtipToys
 {
@@ -107,13 +109,18 @@ namespace WingtipToys
             string connectionString = "Data Source=MYLAPTOP\\SQLEXPRESS;Database=wingtiptoys.mdf;Integrated Security=True";
             //string connectionString = @"Data Source=DESKTOP-S3P3TBM\SQLEXPRESS;Initial Catalog=wingtiptoys.mdf;Integrated Security=True";
             string queryString = "SELECT * FROM dbo.Products WHERE ProductName = '" + searchText + "'";
+            //string queryString = "SELECT * FROM dbo.Products WHERE ProductName LIKE '" + searchText + "%'";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
+                System.Diagnostics.Debug.WriteLine(queryString);
+
                 try
                 {
+                    
                     if (reader.Read())
                     {
                         Response.Redirect("~/Product/" + reader[1]);
@@ -130,6 +137,8 @@ namespace WingtipToys
             }
 
         }
+
+        
     }
 
 }

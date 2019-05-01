@@ -2,8 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <h1><%: Title %>.</h1>
-        <h2>Wingtip Toys can help you find the perfect gift.</h2>
-        <p class="lead">We're all about transportation toys. You can order 
-                any of our toys today. Each toy listing has detailed 
-                information to help you choose the right toy.</p>
+        <h2>Grocery Connections helps make groceries accessible to everybody!.</h2>
+        <p class="lead">Browse our site and choose from our selection of groceries, then place your order and pick them up at the store!.</p>
 </asp:Content>
